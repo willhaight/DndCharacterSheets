@@ -204,7 +204,10 @@ async function fillAbilityData(abilityName) {
 
     if (docSnap.exists()) {
         const data = docSnap.data();
-        document.getElementById('coaster').innerHTML += `<div class="card">
+        const cardContainer = document.createElement('div');
+        cardContainer.className = 'card';
+
+        cardContainer.innerHTML = `
             <div class="cardHeader">
                 <h3>${abilityName}</h3>
             </div>
@@ -213,18 +216,17 @@ async function fillAbilityData(abilityName) {
                 <p>Type: ${data.type}</p>
                 <p>Damage Type: ${data.dmgType}</p>
             </div>
-        </div>`;
+        `;
 
-        const cards = document.getElementsByClassName('card');
-        for (let i = 0; i < cards.length; i++) {
-            cards[i].onclick = function () {
-                let contentElements = document.getElementsByClassName('content');
-                for (let i = 0; i < contentElements.length; i++) {
-                    contentElements[i].style.display = "none";
-                }
-                document.getElementById('modal').style.display = 'flex';
-                document.getElementById('abilityList').innerHTML = "";
-                document.getElementById('expandedCard').innerHTML = `<div class="card">
+        cardContainer.onclick = function () {
+            let contentElements = document.getElementsByClassName('content');
+            for (let i = 0; i < contentElements.length; i++) {
+                contentElements[i].style.display = "none";
+            }
+            document.getElementById('modal').style.display = 'flex';
+            document.getElementById('abilityList').innerHTML = "";
+            document.getElementById('expandedCard').innerHTML = `
+                <div class="card">
                     <div class="cardHeader">
                         <h3>${abilityName}</h3>
                     </div>
@@ -242,19 +244,21 @@ async function fillAbilityData(abilityName) {
                     <div class="deleteCard">
                     </div>
                 </div>`;
+        };
 
-            };
-        }
-
-        document.getElementById('modal').style.display = 'none'; // Close the modal after selection
-        let contentElements = document.getElementsByClassName('content');
-        for (let i = 0; i < contentElements.length; i++) {
-            contentElements[i].style.display = "flex"; // Show the main content again
-        }
+        document.getElementById('coaster').appendChild(cardContainer);
     } else {
         console.log('No such document!');
     }
+
+    document.getElementById('modal').style.display = 'none'; // Close the modal after selection
+    let contentElements = document.getElementsByClassName('content');
+    for (let i = 0; i < contentElements.length; i++) {
+        contentElements[i].style.display = "flex"; // Show the main content again
+    }
 }
+
+
 
 //exit modal
 
