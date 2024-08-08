@@ -152,7 +152,8 @@ body {
 }
 
 /* Content styling */
-.content {
+.content,
+#modal {
     margin-top: 3em;
     background-color: #2c2c2e;
     color: #f5f5f7;
@@ -163,6 +164,7 @@ body {
     align-items: center;
     position: relative;
     padding: 20px;
+    border: solid #63297c .4em;
     border-radius: 8px;
     transition: width 0.3s ease;
 }
@@ -170,4 +172,119 @@ body {
 .content a {
     color: #f5f5f7;
     font-size: 2em;
+}
+
+.controls,
+#exitButton,
+#imageSelector {
+    cursor: pointer;
+}
+
+.blockDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.controls,
+.subClass,
+.coaster {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.subClass,
+.coaster {
+    width: 80%;
+}
+
+.coaster {
+    overflow: scroll;
+}
+
+#modal {
+    display: none;
+    flex-direction: column;
+    /* Add other necessary styles */
+}
+
+#abilityList {
+    display: flex;
+    flex-direction: column;
+    /* Add other necessary styles */
+}
+
+.ability-option,
+#sheetSelector,
+.character-option,
+#deleteAbility {
+    cursor: pointer;
+    /* Add other necessary styles */
+}
+
+#selectedImage {
+    min-width: 50em;
+    border: solid #63297c .4em;
+    border-radius: 8px;
+}
+
+.subClass h3,
+.subClass h2 {
+    width: 30%;
+    border: solid #63297c .2em;
+    border-radius: 8px;
+    padding: 1em 1em 1em 1em;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1em;
+    margin-right: 1em;
+    font-size: 90%;
+}
+
+.subClass h4 {
+    border: solid #63297c .2em;
+    width: 60%;
+    text-align: center;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    background-color: #474748;
+    border-radius: 8px;
+}
+
+.card h3,
+.card h2,
+.card p {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.card {
+    min-width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #474748;
+    padding: 2em 2em 2em 2em;
+    border: .2em #63297c solid;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: 8px;
+}
+
+#expandedCard {
+    width: 100%;
 }
